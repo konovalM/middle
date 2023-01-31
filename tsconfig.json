@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // нельзя использовать переменные без явного типизирования
+    "noImplicitAny": true,
+    // модульная система
+    "module": "ESNext",
+    // результат версии после компиляции
+    "target": "es5",
+    // <div></div> jsx короче
+    "jsx": "react-jsx",
+    // компилятор обрабатывает еще js файлы
+    "allowJs": true,
+    "moduleResolution": "node",
+    //  позволяет работать с пакетами, которые используют common js как с обычнми пакетами import/export
+    // вместо require/module.exports
+    "esModuleInterop": true,
+    // разрешает использовать дефолтные импорты в привычном стиле
+    "allowSyntheticDefaultImports": true,
+    // Для абсолютного импорта
+    "baseUrl": "."
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
