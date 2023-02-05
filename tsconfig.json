@@ -18,7 +18,11 @@
     // разрешает использовать дефолтные импорты в привычном стиле
     "allowSyntheticDefaultImports": true,
     // Для абсолютного импорта
-    "baseUrl": "."
+    "baseUrl": ".",
+    // все абсолютные пути будут идти с папки src
+    "paths": {
+      "*": ["./src/*"],
+    }
   },
   "ts-node": {
     "compilerOptions": {
