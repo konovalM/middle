@@ -1,10 +1,12 @@
 import React, {Suspense} from 'react';
 import {Route, Routes} from "react-router-dom";
 import {routeConfig} from "../config/routeConfig";
+import {useTranslation} from "react-i18next";
 
 const AppRouter = () => {
+    const {t} = useTranslation()
     return (
-        <Suspense fallback={'Загрузка...'}>
+        <Suspense fallback={t('Загрузка')}>
             <Routes>
                     {
                         Object.values(routeConfig)
