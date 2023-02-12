@@ -22,7 +22,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     ];
     if (isDev) {
         // это взаимозаменяемые плагины для обновления кода без перезагрузки страницы в браузере
-        plugins.push(new ReactRefreshPlugin());
+        plugins.push(new ReactRefreshPlugin({ overlay: false }));
         plugins.push(new webpack.HotModuleReplacementPlugin());
     }
     return plugins;
