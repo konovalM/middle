@@ -20,9 +20,10 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         new webpack.DefinePlugin({
             __IS_DEV__: isDev,
         }),
-        new BundleAnalyzerPlugin({ openAnalyzer: false }),
+
     ];
     if (isDev) {
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
         // это взаимозаменяемые плагины для обновления кода без перезагрузки страницы в браузере
         plugins.push(new ReactRefreshPlugin({ overlay: false }));
         plugins.push(new webpack.HotModuleReplacementPlugin());
