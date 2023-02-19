@@ -9,6 +9,8 @@ _SpecRunner.html
 __benchmarks__
 /build
 /storybook-static
+.loki/report.html
+.loki/report.json
 remote-repo/
 coverage/
 .module-cache
