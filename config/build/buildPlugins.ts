@@ -25,8 +25,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     if (isDev) {
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
         // это взаимозаменяемые плагины для обновления кода без перезагрузки страницы в браузере
-        plugins.push(new ReactRefreshPlugin({ overlay: false }));
         plugins.push(new webpack.HotModuleReplacementPlugin());
+        // plugins.push(new ReactRefreshPlugin({ overlay: false }));
     }
     return plugins;
 }
