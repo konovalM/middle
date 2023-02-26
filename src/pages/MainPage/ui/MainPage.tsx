@@ -19,7 +19,6 @@ const MainPage = () => {
                 }
                 {/* <Counter /> */}
             </div>
-            <Input value={value} onChange={onChange} placeholder="Введите текст" />
         </div>
     );
 };
