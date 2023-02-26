@@ -28,16 +28,19 @@ export const Button: FC<ButtonProps> = ({
     theme = ButtonTheme.CLEAR,
     square,
     size = ButtonSize.M,
+    disabled,
     ...otherProps
 }) => {
     const mods: Record<string, boolean> = {
         [styles.square]: square,
         [styles[size]]: true,
+        [styles.disabled]: disabled,
     };
     return (
         <button
             type="button"
             className={classNames(styles.button, mods, [className, styles[theme]])}
+            disabled={disabled}
             {...otherProps}
         >
             {children}
