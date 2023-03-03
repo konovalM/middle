@@ -14,6 +14,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstName": "Maxim",
+    "lastName": "Konovalenko",
+    "age": 20,
+    "currency": "USD",
+    "country": "Canada",
+    "city": "Vancouver",
+    "username": "ii4elka",
+    "avatar": "https://sun9-34.userapi.com/impg/qAQuLgVvXU6i8qm0JbJr0OPKoDuy8N5jYgiGsQ/e7Fm0olm8Q8.jpg?size=666x1080&quality=96&sign=c4b2274a2cf1dfab0c44eb851d6a47e4&type=album"
   }
 }

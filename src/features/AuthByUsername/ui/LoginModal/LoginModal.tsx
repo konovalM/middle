@@ -5,7 +5,7 @@ import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
     isOpen?: boolean;
-    onClose?: () => void
+    onClose?: () => void;
 }
 
 export const LoginModal: FC<LoginModalProps> = ({ isOpen, onClose }) => (
@@ -15,7 +15,7 @@ export const LoginModal: FC<LoginModalProps> = ({ isOpen, onClose }) => (
         lazy
     >
         <Suspense fallback={<Loader />}>
-            <LoginFormAsync />
+            <LoginFormAsync onSuccess={onClose} />
         </Suspense>
     </Modal>
 );

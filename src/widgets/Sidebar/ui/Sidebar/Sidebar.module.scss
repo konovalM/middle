@@ -29,25 +29,6 @@
   margin-left: 20px;
 }
 
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  column-gap: 8px;
-}
-
-.item + .item {
-  margin-top: 15px;
-}
-
-.link {
-  transition: 0.3s opacity;
-  white-space: nowrap;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
