@@ -4,15 +4,20 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import {
     fetchProfileData,
-    getProfileError, getProfileForm,
-    getProfileLoading, getProfileReadonly, profileActions,
+    getProfileError,
+    getProfileForm,
+    getProfileLoading,
+    getProfileReadonly,
+    getProfileValidateErrors,
+    profileActions,
     ProfileCard,
-    profileReducer,
+    profileReducer, ValidateProfileError,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -26,6 +31,16 @@ const ProfilePage: FC<ProfilePageProps> = memo(() => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileLoading);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslate = {
+        [ValidateProfileError.SERVER_ERROR]: 'Ошибка при сохранении данных',
+        [ValidateProfileError.NO_DATA]: 'Данные о пользователи не могут быть пустыми',
+        [ValidateProfileError.INCORRECT_COUNTRY]: 'Недопустимая страна',
+        [ValidateProfileError.INCORRECT_USER_DATA]: 'Недопустимые имя или фамилия',
+        [ValidateProfileError.INCORRECT_AGE]: 'Недопустимый возраст',
+    };
+
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch]);
@@ -40,7 +55,6 @@ const ProfilePage: FC<ProfilePageProps> = memo(() => {
 
     const onChangeAge = useCallback((value?: string) => {
         if ((value && Number.isInteger(+value)) || !value) {
-            console.log('sup');
             dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
         }
     }, [dispatch]);
@@ -69,6 +83,11 @@ const ProfilePage: FC<ProfilePageProps> = memo(() => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>
                 <ProfilePageHeader />
+                {
+                    validateErrors?.length && validateErrors.map((err) => (
+                        <Text theme={TextTheme.ERROR} text={validateErrorTranslate[err]} key={err} />
+                    ))
+                }
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
