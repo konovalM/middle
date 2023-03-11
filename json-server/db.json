@@ -5,7 +5,16 @@
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 }
   ],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "firstName": "Maxim",
+    "lastName": "Konovalenko",
+    "age": 20,
+    "currency": "USD",
+    "country": "Canada",
+    "city": "Vancouver",
+    "username": "admin",
+    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+  },
   "users": [
     {
       "id": 1,

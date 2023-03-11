@@ -1,9 +1,9 @@
-type Mods = Record<string, boolean | string | number>;
+type Mods = Record<string, boolean | string | number | undefined>;
 
 export function classNames(
     cls: string,
     mods: Mods = {},
-    additional: string[] = [],
+    additional: (string | undefined)[] = [],
 ): string {
     return [
         cls,

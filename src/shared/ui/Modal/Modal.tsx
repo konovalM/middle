@@ -1,5 +1,5 @@
 import React, {
-    FC, lazy, ReactNode, useCallback, useEffect, useRef, useState,
+    FC, lazy, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
@@ -22,7 +22,7 @@ export const Modal: FC<ModalProps> = (props) => {
     } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
         [styles.closing]: isClosing,

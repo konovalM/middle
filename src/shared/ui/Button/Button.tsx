@@ -34,7 +34,7 @@ export const Button = memo(({
     disabled,
     ...otherProps
 }: ButtonProps) => {
-    const mods: Record<string, boolean> = {
+    const mods: Record<string, boolean | undefined> = {
         [styles.square]: square,
         [styles[size]]: true,
         [styles.disabled]: disabled,

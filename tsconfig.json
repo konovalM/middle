@@ -11,6 +11,8 @@
     "jsx": "react-jsx",
     // компилятор обрабатывает еще js файлы
     "allowJs": true,
+    // включение стрикт режима
+    "strict": true,
     "moduleResolution": "node",
     //  позволяет работать с пакетами, которые используют common js как с обычнми пакетами import/export
     // вместо require/module.exports
@@ -21,7 +23,7 @@
     "baseUrl": ".",
     // все абсолютные пути будут идти с папки src
     "paths": {
-      "*": ["./src/*"],
+      "*": ["./src/*"]
     }
   },
   "ts-node": {

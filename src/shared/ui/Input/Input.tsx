@@ -38,7 +38,7 @@ export const Input = memo((props: InputProps) => {
     useEffect(() => {
         if (autoFocus) {
             setIsFocus(true);
-            inputRef.current.focus();
+            inputRef?.current?.focus();
         }
     }, [autoFocus]);
 
@@ -56,6 +56,7 @@ export const Input = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     ref={inputRef}
+                    value={value}
                     {...otherProps}
                 />
                 {
